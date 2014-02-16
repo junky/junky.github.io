@@ -54,6 +54,7 @@ new function() {
 	var onClose = function() {
 		console.log('CLOSED: ' + serverUrl.val());
 		ws = null;
+		close();
 	};
 	
 	var onMessage = function(event) {
