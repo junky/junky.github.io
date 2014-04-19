@@ -91,8 +91,8 @@
     websocket = null;
     isConnected = false;
     
-    if(localStorage.getItem("ws_url") === null) {
-        $('#server').val(localStorage.ws_url);
+    if(localStorage.getItem("ws_url1") === null) {
+        $('#server').val(localStorage.ws_url1);
     }
     
     function dateToString(date) {
@@ -161,7 +161,7 @@
     function onConnButtonClick(){
     	if(!isConnected) {
     	    openWebSocket($('#server').val());
-            localStorage.ws_url = $('#server').val();
+            localStorage.ws_url1 = $('#server').val();
     	} else {
             clearTimeout(timer);
             timer = 0;
