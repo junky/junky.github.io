@@ -96,12 +96,20 @@
     }
     
     function dateToString(date) {
-        var dateOfString = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+    	var min = date.getMinutes();
+    	if(min<10) {
+    	    min = "0" + min;    
+    	}
+    	var sec = date.getSeconds();
+    	if(sec<10) {
+    	    sec = "0" + sec;    
+    	}
+        var dateOfString = date.getHours() + ":" + min + ":" + sec;
         return dateOfString;
     }
     
     function log(msg) {
-	$('#log').text(dateToString(new Date()) + " " + msg + "\n" + $('#log').text());
+        $('#log').text(dateToString(new Date()) + " " + msg + "\n" + $('#log').text());
     }
 
     function openWebSocket(wsUri) { 
