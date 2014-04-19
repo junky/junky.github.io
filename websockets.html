@@ -150,17 +150,11 @@
 
     function getRandomInt (min, max) {
     	var num = Math.floor(Math.random() * (max - min + 1)) + min;
-    	if (num < 100) {
-    	    num = "0" + num;
-    	}
-    	if (num < 10) {
-    	    num = "0" + num;
-    	}
         return num;
     }
     
     function sendNumberedMessage() {
-    	var r = getRandomInt(0, 999);
+    	var r = getRandomInt(100, 999);
     	doSend('nm:' + r);
     	timer = setTimeout(sendNumberedMessage, 5000);
     }
