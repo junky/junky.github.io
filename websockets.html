@@ -96,8 +96,8 @@
         return dateOfString;
     }
     
-	function log(msg) {
-	    $('#log').text(dateToString(new Date()) + " " + msg + "\n" + $('#log').text());
+    function log(msg) {
+	$('#log').text(dateToString(new Date()) + " " + msg + "\n" + $('#log').text());
     }
 
     function openWebSocket(wsUri) { 
@@ -129,7 +129,7 @@
     	log('RESPONSE: ' + evt.data);
     	s = evt.data;
     	if(s.indexOf("nm:")==0) {
-    		odometer.innerHTML = s.substring(3);
+    	  odometer.innerHTML = s.substring(3);
     	}
     }  
     
@@ -155,12 +155,13 @@
     }
     
     function onConnButtonClick(){
+    	alert(localStorage.tt);
     	if(!isConnected) {
     	    openWebSocket($('#server').val());
     	} else {
             clearTimeout(timer);
             timer = 0;
-    		websocket.close();
+            websocket.close();
     	}
     }
     
