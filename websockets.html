@@ -66,7 +66,7 @@
       <div class="starter-template">
         <div style="padding: 20px 30px;">
           <b>Server URL:</b>
-          <input type="text" name="server" id="server" style="width: 250px;" value="ws://localhost:10080/websocket/" />
+          <input type="text" name="server" id="server" style="width: 250px;" value="ws://echo.websocket.org" />
           <input type="button" value="Open" id="conn_button" onclick="onConnButtonClick();" />
         </div>
         
@@ -91,7 +91,9 @@
     websocket = null;
     isConnected = false;
     
-    $('#server').val(localStorage.ws_url);
+    if(localStorage.ws_url!=="undefined") {
+        $('#server').val(localStorage.ws_url);
+    }
     
     function dateToString(date) {
         var dateOfString = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
@@ -157,9 +159,9 @@
     }
     
     function onConnButtonClick(){
-    	alert(localStorage.tt);
     	if(!isConnected) {
     	    openWebSocket($('#server').val());
+            localStorage.ws_url = $('#server').val();
     	} else {
             clearTimeout(timer);
             timer = 0;
