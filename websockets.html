@@ -91,7 +91,7 @@
     websocket = null;
     isConnected = false;
     
-    if(localStorage.ws_url!=="undefined") {
+    if(localStorage.getItem("ws_url") === null) {
         $('#server').val(localStorage.ws_url);
     }
     
