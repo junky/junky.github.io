@@ -16,6 +16,12 @@
       body {
         padding-top: 50px;
       }
+ 
+      .form-signin {
+        max-width: 330px;
+        padding: 15px;
+        margin: 0 auto;
+      }
     </style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 
@@ -48,11 +54,13 @@
     </div>
 
     <div class="container">
-        <div>
-          <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-          <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-        </div>
-        <h2 class="sub-header">Section title</h2>
+        <form class="form-signin">
+          <h2 class="form-signin-heading">New login</h2>
+          <input type="text" id="inputEmail" placeholder="Login name" required autofocus>
+          <input type="password" id="inputPassword" placeholder="Password" required>
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Add</button>
+        </form>
+        <h2 class="sub-header">Login list</h2>
         <div class="table-responsive">
           <table class="table table-striped">
             <thead>
