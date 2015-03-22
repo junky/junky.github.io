@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="junky">
 
-    <title>Karatel</title>
+    <title>Karatel - Logins</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
@@ -16,14 +19,13 @@
       body {
         padding-top: 50px;
       }
-      .form-signin {
+      .form-new-login {
         max-width: 330px;
         padding: 15px;
         margin: 0 auto;
       }
-      .form-signin-input {
+      .form-new-login-input {
         width: 100%;
-        margin: 1px;
       }
     </style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
@@ -57,10 +59,10 @@
     </div>
 
     <div class="container">
-        <form class="form-signin">
-          <h2 class="form-signin-heading">New login</h2>
-          <input type="text" id="inputEmail" class="form-signin-input" placeholder="Login name" required autofocus>
-          <input type="password" id="inputPassword" class="form-signin-input" placeholder="Password" required>
+        <form class="form-new-login" method="post" action="karatel.html">
+          <h2 class="form-new-login-heading">New login</h2>
+          <input type="text" id="newLoginName" class="form-new-login-input" placeholder="Login name" required autofocus>
+          <input type="password" id="newLoginPassword" class="form-new-login-input" placeholder="Password" required>
           <button class="btn btn-primary btn-block" type="submit">Add</button>
         </form>
         <h2 class="sub-header">Login list</h2>
@@ -75,36 +77,40 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>User1</td>
+		
+		    <tr>      
+		        <td>Romashka</td>
                 <td>&lt;Password&gt;</td>
-                <td>yes</td>
+		        <td>true</td>
                 <td>
                   <button type="button" class="btn btn-default btn-xs">
                     <span class="glyphicon glyphicon-off" aria-hidden="true"></span> Deactivate
                   </button>
                 </td>
-              </tr>
-              <tr>
-                <td>User2</td>
+		    </tr>
+		
+		    <tr>      
+		        <td>Lyutik</td>
                 <td>&lt;Password&gt;</td>
-                <td>yes</td>
+		        <td>false</td>
                 <td>
                   <button type="button" class="btn btn-default btn-xs">
                     <span class="glyphicon glyphicon-off" aria-hidden="true"></span> Deactivate
                   </button>
                 </td>
-              </tr>
-              <tr>
-                <td>User3</td>
+		    </tr>
+		
+		    <tr>      
+		        <td>Vasilyok</td>
                 <td>&lt;Password&gt;</td>
-                <td>yes</td>
+		        <td>false</td>
                 <td>
                   <button type="button" class="btn btn-default btn-xs">
                     <span class="glyphicon glyphicon-off" aria-hidden="true"></span> Deactivate
                   </button>
                 </td>
-              </tr>
+		    </tr>
+		
             </tbody>
           </table>
         </div>
