@@ -59,11 +59,11 @@
     </div>
 
     <div class="container">
-        <form class="form-new-login" method="get" action="karatel.html">
+        <form class="form-new-login" method="post" action="logins">
           <h2 class="form-new-login-heading">New login</h2>
-          <input type="text" id="newLoginName" class="form-new-login-input" placeholder="Login name" required autofocus>
-          <input type="password" id="newLoginPassword" class="form-new-login-input" placeholder="Password" required>
-          <input class="btn btn-primary btn-block" type="submit" value="Add">
+          <input type="text" id="newLoginName" name="newLoginName" class="form-new-login-input" placeholder="Login name" required autofocus>
+          <input type="password" id="newLoginPassword" name="newLoginPassword" class="form-new-login-input" placeholder="Password" required>
+          <input class="btn btn-primary btn-block" name="newLogin" type="submit" value="Add">
         </form>
         <h2 class="sub-header">Login list</h2>
         <div class="table-responsive">
@@ -79,38 +79,47 @@
             <tbody>
 		
 		    <tr>      
-		        <td>Romashka</td>
+		        <td>karatel</td>
                 <td>&lt;Password&gt;</td>
 		        <td>true</td>
                 <td>
-                  <button type="button" class="btn btn-default btn-xs">
-                    <span class="glyphicon glyphicon-off" aria-hidden="true"></span> Deactivate
-                  </button>
-                </td>
-		    </tr>
-		
-		    <tr>      
-		        <td>Lyutik</td>
-                <td>&lt;Password&gt;</td>
-		        <td>false</td>
-                <td>
-                  <button type="button" class="btn btn-default btn-xs">
-                    <span class="glyphicon glyphicon-off" aria-hidden="true"></span> Deactivate
-                  </button>
-                </td>
-		    </tr>
-		
-		    <tr>      
-		        <td>Vasilyok</td>
-                <td>&lt;Password&gt;</td>
-		        <td>false</td>
-                <td>
-                  <form method="get" action="karatel.html">
-                  <input type="hidden" name="loginName" value="Lyutik">
-                  <button type="submit" name="deactivateLogin" value="Lyutik" class="btn btn-default btn-xs">
-                    <span class="glyphicon glyphicon-off" aria-hidden="true"></span> Deactivate
-                  </button>
+                
+                  <form method="post" action="logins">
+	                  <button type="submit" name="deactivateLogin" value="karatel" class="btn btn-default btn-xs">
+    	                <span class="glyphicon glyphicon-off" aria-hidden="true"></span> Deactivate
+        	          </button>
                   </form>
+                
+                </td>
+		    </tr>
+		
+		    <tr>      
+		        <td>pastor</td>
+                <td>&lt;Password&gt;</td>
+		        <td>true</td>
+                <td>
+                
+                  <form method="post" action="logins">
+	                  <button type="submit" name="deactivateLogin" value="pastor" class="btn btn-default btn-xs">
+    	                <span class="glyphicon glyphicon-off" aria-hidden="true"></span> Deactivate
+        	          </button>
+                  </form>
+                
+                </td>
+		    </tr>
+		
+		    <tr>      
+		        <td>alex</td>
+                <td>&lt;Password&gt;</td>
+		        <td>true</td>
+                <td>
+                
+                  <form method="post" action="logins">
+	                  <button type="submit" name="deactivateLogin" value="alex" class="btn btn-default btn-xs">
+    	                <span class="glyphicon glyphicon-off" aria-hidden="true"></span> Deactivate
+        	          </button>
+                  </form>
+                
                 </td>
 		    </tr>
 		
