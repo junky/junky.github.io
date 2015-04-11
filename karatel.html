@@ -33,6 +33,12 @@
       .green {
       	color: #5cb85c;
       }
+      .center {
+      	text-align: center;
+      }
+      .margin-top5 {
+      	margin-top: 5px;
+      }
     </style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 
@@ -69,7 +75,7 @@
           <h2 class="form-new-login-heading">New login</h2>
           <input type="text" id="newLoginName" name="newLoginName" class="form-new-login-input" placeholder="Login name" required autofocus>
           <input type="password" id="newLoginPassword" name="newLoginPassword" class="form-new-login-input" placeholder="Password" required>
-          <input class="btn btn-primary btn-block" name="newLogin" type="submit" value="Add">
+          <input class="btn btn-primary btn-block margin-top5" name="newLogin" type="submit" value="Add">
         </form>
         <h2 class="sub-header">Login list</h2>
         <div class="table-responsive">
@@ -77,16 +83,16 @@
             <thead>
               <tr>
                 <th>Login</th>
-                <th>Active?</th>
-                <th></th>
+                <th class="center">Active?</th>
+                <th class="center"></th>
               </tr>
             </thead>
             <tbody>
 		
 		    <tr>      
 		        <td>karatel</td>
-		        <td><span class="glyphicon glyphicon-minus red" aria-hidden="true"></span></td>
-                <td>
+		        <td class="center"><span class="glyphicon glyphicon-minus red" aria-hidden="true"></span></td>
+                <td class="center">
                 
                   <form method="post" action="logins">
 	                  <button type="submit" name="deactivateLogin" value="karatel" class="btn btn-default btn-xs">
@@ -99,8 +105,8 @@
 		
 		    <tr>      
 		        <td>pastor</td>
-		        <td><span class="glyphicon glyphicon-plus green" aria-hidden="true"></span></td>
-                <td>
+		        <td class="center"><span class="glyphicon glyphicon-plus green" aria-hidden="true"></span></td>
+                <td class="center">
                 
                   <form method="post" action="logins">
 	                  <button type="submit" name="deactivateLogin" value="pastor" class="btn btn-default btn-xs">
@@ -113,8 +119,8 @@
 		
 		    <tr>      
 		        <td>alex</td>
-		        <td><span class="glyphicon glyphicon-plus green" aria-hidden="true"></span></td>
-                <td>
+		        <td class="center"><span class="glyphicon glyphicon-plus green" aria-hidden="true"></span></td>
+                <td class="center">
                 
                   <form method="post" action="logins">
 	                  <button type="submit" name="deactivateLogin" value="alex" class="btn btn-default btn-xs">
