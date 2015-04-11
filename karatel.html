@@ -27,6 +27,12 @@
       .form-new-login-input {
         width: 100%;
       }
+      .red {
+      	color: #c9302c;
+      }
+      .green {
+      	color: #5cb85c;
+      }
     </style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 
@@ -71,7 +77,6 @@
             <thead>
               <tr>
                 <th>Login</th>
-                <th>Password</th>
                 <th>Active?</th>
                 <th></th>
               </tr>
@@ -80,8 +85,7 @@
 		
 		    <tr>      
 		        <td>karatel</td>
-                <td>&lt;Password&gt;</td>
-		        <td>true</td>
+		        <td><span class="glyphicon glyphicon-minus red" aria-hidden="true"></span></td>
                 <td>
                 
                   <form method="post" action="logins">
@@ -95,8 +99,7 @@
 		
 		    <tr>      
 		        <td>pastor</td>
-                <td>&lt;Password&gt;</td>
-		        <td>true</td>
+		        <td><span class="glyphicon glyphicon-plus green" aria-hidden="true"></span></td>
                 <td>
                 
                   <form method="post" action="logins">
@@ -110,8 +113,7 @@
 		
 		    <tr>      
 		        <td>alex</td>
-                <td>&lt;Password&gt;</td>
-		        <td>true</td>
+		        <td><span class="glyphicon glyphicon-plus green" aria-hidden="true"></span></td>
                 <td>
                 
                   <form method="post" action="logins">
