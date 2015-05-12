@@ -1,4 +1,4 @@
 /* <sl:translate> */
 //Cookies
-var c = 'TTTT %s AAAAA';
+var c = 'Text %s translation ABCDEFG';
 /* </sl:translate> */
