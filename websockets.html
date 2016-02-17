@@ -76,6 +76,8 @@
           <textarea id="log" style="width: 600px; height: 250px;"></textarea>
         </div>
         
+        <div><input type="button" value="LocalStorage" onclick="isInLocalStorage()"></div>
+        
       </div>
 
     </div><!-- /.container -->
@@ -94,6 +96,12 @@
     
     if(localStorage.getItem("ws_url1") !== null) {
         $('#server').val(localStorage.ws_url1);
+    }
+    
+    function isInLocalStorage() {
+      if(localStorage.getItem("placehoders_service_api_gateway") === 'yes') {
+        alert('placehoders_service_api_gateway=yes');
+      }
     }
     
     function dateToString(date) {
