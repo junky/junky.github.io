@@ -72,6 +72,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
-    <script>$("#url_value").html(window.location.pathname);</script>
+    <script>$("#url_value").html(decodeURIComponent(window.location.pathname));</script>
   </body>
 </html>
