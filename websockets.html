@@ -77,7 +77,14 @@
           <textarea id="log" style="width: 600px; height: 250px;"></textarea>
         </div>
         
-        <div><input type="button" value="LocalStorage" onclick="isInLocalStorage()"></div>
+        <div>
+          <p>
+            Have questions? Give us a call at <span class=“SL_swap” id=“phone-number”>012-345-6789</span> and we’ll help you out!
+          </p>
+          <p>
+            Call <span class=“notranslate” id=“phone-number”>012-345-6789</span> for more details!
+          </p>
+        </div>
         
       </div>
 
@@ -98,13 +105,7 @@
     if(localStorage.getItem("ws_url1") !== null) {
         $('#server').val(localStorage.ws_url1);
     }
-    
-    function isInLocalStorage() {
-      if(localStorage.getItem("placehoders_service_api_gateway") === 'yes') {
-        alert('placehoders_service_api_gateway=yes');
-      }
-    }
-    
+        
     function dateToString(date) {
     	var min = date.getMinutes();
     	if(min<10) {
