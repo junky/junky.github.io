@@ -57,9 +57,8 @@
 
     </div><!-- /.container -->
     <script>
-      /*<sl:translate>*/
-      $(".dynamic").text("New JS Text");
-      /*</sl:translate>*/
+      obj = /* <sl:translate_json> */{"sl_translate":"sl_all","txt":"new JSON string"}/* </sl:translate_json> */;
+      $(".dynamic").text(obj.txt);
     </script>
 
 
