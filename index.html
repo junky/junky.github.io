@@ -19,16 +19,7 @@
       }
     </style>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
-
-    <!-- Odometr includes -->
-    <link rel="stylesheet" href="//github.hubspot.com/odometer/themes/odometer-theme-car.css" />
-    <script src="//github.hubspot.com/odometer/odometer.js"></script>
-    
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   </head>
 
   <body>
@@ -58,14 +49,15 @@
 
     <div class="container">
         <div class="starter-template">
-          <p>{checkedCount, plural, =0 {All Neighborhoods} one {1 Neighborhood} other {# Neighborhoods}}</p>
-          <p>{office_capacity, plural, one {{office_capacity} Person} other {{office_capacity} Person}}</p>
-        </div>
+          <p>String A</p>
+          <p></p>
+    </div>
+      
+    <h1 class="dynamic">Origin</h1>
 
     </div><!-- /.container -->
-
-     <script>
-      window.__MESSAGES__ = /* <sl:translate_json> */{"sl_translate":"sl_all","priceTable.officeCapacity":"{office_capacity, plural, one {{office_capacity} Seat} other {{office_capacity} Seats}}"}/* </sl:translate_json> */;
+    <script>
+      $(".dynamic").text("New JS Text");
     </script>
 
 
