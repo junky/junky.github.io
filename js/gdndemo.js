@@ -1,12 +1,24 @@
 window.addEventListener('load', runTranslationsUpdates, false);
 
 function runTranslationsUpdates() {
-	calculateNumbers();
+	console.log("runTranslationsUpdates()");
+
+	var runAgain = calculateNumbers();
 	getTranslations();
+
+	if (runAgain == true) {
+		setTimeout(runTranslationsUpdates, 10000);
+	} else {
+		console.log("Stop runTranslationsUpdates()");
+	}
 }
 
 function calculateNumbers() {
 	var slTags = document.getElementsByTagName("smartling:edit");
+	if (slTags==null || slTags.length===0) {
+		return false;
+	}
+
     var total = 0;
     var translated = 0;
 	for (const tag of slTags) {
@@ -20,22 +32,33 @@ function calculateNumbers() {
 
 	document.getElementById("total").innerHTML = total;
 	document.getElementById("translated").innerHTML = translated;
+
+	if (total===0) {
+		return false;
+	}
+
+	if (total===translated) {
+		return false;
+	}
+
+	return true;
 }
 
 
 function getHashcodes(ajaxDoc) {
 	var slTags = document.getElementsByTagName("smartling:edit");
-	for (const tag of slTags){
-		var hash = tag.getAttribute("hash");
-	  	console.log("Updating tag " + hash);
+	for (const tag of slTags) {
+		if (tag.getAttribute("translation_workflow") != "60" && tag.getAttribute("machine_translation") == null) {
+			var hash = tag.getAttribute("hash");
+		  	console.log("Updating tag " + hash);
      
-	  	var slAjaxTags = ajaxDoc.querySelectorAll('[hash="'+hash+'"]');
-
-	  	if(slAjaxTags!=null && slAjaxTags.length > 0) {
-	  		tag.setAttribute("machine_translation", slAjaxTags[0].getAttribute("machine_translation"));
-	  		tag.setAttribute("translation", slAjaxTags[0].getAttribute("translation"));
-	  		tag.innerText = slAjaxTags[0].innerText;
-	  	}
+	  		var slAjaxTags = ajaxDoc.querySelectorAll('[hash="'+hash+'"]');
+		  	if(slAjaxTags!=null && slAjaxTags.length > 0) {
+		  		tag.setAttribute("machine_translation", slAjaxTags[0].getAttribute("machine_translation"));
+	  			tag.setAttribute("translation", slAjaxTags[0].getAttribute("translation"));
+	  			tag.innerText = slAjaxTags[0].innerText;
+		  	}
+		}
 	}
 }
 
@@ -49,6 +72,7 @@ function getTranslations() {
        }
      };
 
+	console.log("URL " + window.location.href);
 	xhttp.open("GET", window.location.href, true);
 	xhttp.send();
 }
