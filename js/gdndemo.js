@@ -7,18 +7,21 @@ function runTranslationsUpdates() {
 
 function calculateNumbers() {
 	var slTags = document.getElementsByTagName("smartling:edit");
-    	var total = 0;
-    	var translated = 0;
+    var total = 0;
+    var translated = 0;
 	for (const tag of slTags) {
-		total++;
-		if (tag.getAttribute("machine_translation") != null) {
-			translated++;		
+		if (tag.getAttribute("translation_workflow") != "60") {
+			total++;
+			if (tag.getAttribute("machine_translation") != null) {
+				translated++;		
+			}
 		}
 	}
 
 	document.getElementById("total").innerHTML = total;
 	document.getElementById("translated").innerHTML = translated;
 }
+
 
 function getHashcodes(ajaxDoc) {
 	var slTags = document.getElementsByTagName("smartling:edit");
@@ -46,8 +49,8 @@ function getTranslations() {
        }
      };
 
-   xhttp.open("GET", "https://ru-f742c2e48658bcfa6.getsmartling.com/?smartling_EditMode=1", true);
-   xhttp.send();
+	xhttp.open("GET", window.location.href, true);
+	xhttp.send();
 }
 
 window.onscroll = function() {onScrollFunc()};
