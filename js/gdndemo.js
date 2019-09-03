@@ -1,4 +1,4 @@
-window.onload = runTranslationsUpdates;
+window.addEventListener('load', runTranslationsUpdates, false);
 
 function runTranslationsUpdates() {
 	calculateNumbers();
@@ -7,8 +7,8 @@ function runTranslationsUpdates() {
 
 function calculateNumbers() {
 	var slTags = document.getElementsByTagName("smartling:edit");
-    var total = 0;
-    var translated = 0;
+    	var total = 0;
+    	var translated = 0;
 	for (const tag of slTags) {
 		total++;
 		if (tag.getAttribute("machine_translation") != null) {
