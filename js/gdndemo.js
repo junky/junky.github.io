@@ -1,20 +1,20 @@
 window.onload = runTranslationsUpdates;
 
 function runTranslationsUpdates() {
-  calculateNumbers();
-  getTranslations();
+	calculateNumbers();
+	getTranslations();
 }
 
 function calculateNumbers() {
 	var slTags = document.getElementsByTagName("smartling:edit");
-        var total = 0;
-        var translated = 0;
+    var total = 0;
+    var translated = 0;
 	for (const tag of slTags) {
-           total++;
-           if (tag.getAttribute("machine_translation") != null) {
-		translated++;		
-           }
-        }
+		total++;
+		if (tag.getAttribute("machine_translation") != null) {
+			translated++;		
+		}
+	}
 
 	document.getElementById("total").innerHTML = total;
 	document.getElementById("translated").innerHTML = translated;
@@ -23,14 +23,16 @@ function calculateNumbers() {
 function getHashcodes(ajaxDoc) {
 	var slTags = document.getElementsByTagName("smartling:edit");
 	for (const tag of slTags){
-          var hash = tag.getAttribute("hash");
-	  console.log("Updating tag " + hash);
+		var hash = tag.getAttribute("hash");
+	  	console.log("Updating tag " + hash);
      
-          var slTags = ajaxDoc.querySelectorAll('[hash="'+hash+'"]');
+	  	var slAjaxTags = ajaxDoc.querySelectorAll('[hash="'+hash+'"]');
 
-	  tag.setAttribute("machine_translation", slTags[0].getAttribute("machine_translation"));
-	  tag.setAttribute("translation", slTags[0].getAttribute("translation"));
-	  tag.innerText = slTags[0].innerText;
+	  	if(slAjaxTags!=null && slAjaxTags.length > 0) {
+	  		tag.setAttribute("machine_translation", slAjaxTags[0].getAttribute("machine_translation"));
+	  		tag.setAttribute("translation", slAjaxTags[0].getAttribute("translation"));
+	  		tag.innerText = slAjaxTags[0].innerText;
+	  	}
 	}
 }
 
@@ -40,7 +42,7 @@ function getTranslations() {
       if (this.readyState == 4 && this.status == 200) {
 	     var doc = new DOMParser().parseFromString(this.responseText, "text/html");
 	     getHashcodes(doc);
-             calculateNumbers();
+         calculateNumbers();
        }
      };
 
