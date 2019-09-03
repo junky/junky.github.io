@@ -53,7 +53,7 @@ function getHashcodes(ajaxDoc) {
 		  	console.log("Updating tag " + hash);
      
 	  		var slAjaxTags = ajaxDoc.querySelectorAll('[hash="'+hash+'"]');
-		  	if(slAjaxTags!=null && slAjaxTags.length > 0) {
+		  	if(slAjaxTags!=null && slAjaxTags.length > 0 && slAjaxTags[0].getAttribute("machine_translation") != null) {
 		  		tag.setAttribute("machine_translation", slAjaxTags[0].getAttribute("machine_translation"));
 	  			tag.setAttribute("translation", slAjaxTags[0].getAttribute("translation"));
 	  			tag.innerText = slAjaxTags[0].innerText;
