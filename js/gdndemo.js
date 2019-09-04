@@ -83,8 +83,8 @@ addSLHeader();
 function addSLHeader() {
   var elemDiv = document.createElement('div');
   elemDiv.setAttribute('id', 'gdnDemoHeader');
-  elemDiv.innerHTML = '<h2>Smartling GDN Demo. Machine translation: <span id="translated">0</span>/<span id="total">0</span> strings.</h2>';
-  elemDiv.style.cssText = 'padding:6px 12px;background:#56189e;color: #f1f1f1;';
+  elemDiv.innerHTML = '<h2 style="color:#f1f1f1;">Smartling GDN Demo. Machine translation: <span id="translated">0</span>/<span id="total">0</span> strings.</h2>';
+  elemDiv.style.cssText = 'padding:6px 12px;background:#56189e;color:#f1f1f1;position:fixed;z-index:99999999;';
   document.body.insertAdjacentElement("afterbegin", elemDiv);
 }
 
@@ -92,11 +92,9 @@ var header = document.getElementById("gdnDemoHeader");
 
 function onScrollFunc() {
   if (window.pageYOffset > header.offsetTop) {
-    header.style.position = "fixed";
     header.style.top = "0";
     header.style.width = "100%";
   } else {
-    header.style.position = "";
     header.style.top = "";
     header.style.width = "";
   }
