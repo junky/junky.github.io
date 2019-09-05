@@ -9,6 +9,7 @@ function runTranslationsUpdates() {
 	if (runAgain == true) {
 		setTimeout(runTranslationsUpdates, 10000);
 	} else {
+		document.getElementById("gdnDemoHeader").style.visibility = "hidden";
 		console.log("Stop runTranslationsUpdates()");
 	}
 }
