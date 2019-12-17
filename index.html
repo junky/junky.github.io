@@ -59,7 +59,12 @@
 
     </div><!-- /.container -->
     <script>
-      obj = /* <sl:translate_json> */{"sl_translate":"sl_all","txt":"new JSON string"}/* </sl:translate_json> */;
+      obj = /* <sl:translate_json> */{"sl_translate":"sl_all",
+                                      "json":"ampersand - &",
+                                      "handlebar":"JSON &amp; handlebar",
+                                      "html":"&qout;HTML in JSON&qout;",
+                                      "url":"http://junky.github.io/?TargetWorkersExpression=routing.skills+HAS+%22Sales%22&PageSize=10",
+            }/* </sl:translate_json> */;
       /*<sl:translate>*/
       $(".dynamic").text("New JS Text");
       var json = '{"sl_translate":"name"\n,"name":"name","message":"message","age":100}';
