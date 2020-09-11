@@ -20,6 +20,7 @@
     </style>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="/js/md5.js"></script>
   </head>
 
   <body>
@@ -51,13 +52,17 @@
 
     <div class="container">
     
-    <label for="w3review">MD5:</label>
-    <textarea id="md5area" rows="5" cols="75">
-
-    </textarea>
+    <label for="w3review">MD5:&nbsp;&nbsp;</label><span id="md5value"></span>
+    <br>
+    <textarea id="md5area" rows="5" cols="75"></textarea>
+    <br>
+    <button onclick='md5OnClick(document.getElementById("md5area").value);'>Calculate MD5</button>
 
     </div><!-- /.container -->
     <script>
+      function md5OnClick(str) {
+        document.getElementById("md5value").innerHTML = calcMD5(str);
+      }
     </script>
 
     <!-- Bootstrap core JavaScript -->
