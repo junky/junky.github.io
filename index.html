@@ -52,16 +52,20 @@
 
     <div class="container">
     
-    <label for="w3review">MD5:&nbsp;&nbsp;</label><span id="md5value"></span>
+    <label id="lb_value" for="op_value">Value:&nbsp;&nbsp;</label><span id="op_value"></span>
     <br>
-    <textarea id="md5area" rows="5" cols="75"></textarea>
+    <textarea id="string_area" rows="5" cols="75"></textarea>
     <br>
-    <button onclick='md5OnClick(document.getElementById("md5area").value);'>Calculate MD5</button>
+    <button onclick='md5OnClick(document.getElementById("string_area").value);'>MD5 Hashcode</button>
+    <button onclick='StrLengthOnClick(document.getElementById("string_area").value);'>String Length</button>
 
     </div><!-- /.container -->
     <script>
       function md5OnClick(str) {
-        document.getElementById("md5value").innerHTML = calcMD5(str);
+        document.getElementById("op_value").innerHTML = calcMD5(str);
+      }
+      function StrLengthOnClick(str) {
+        document.getElementById("op_value").innerHTML = str.length;
       }
     </script>
 
