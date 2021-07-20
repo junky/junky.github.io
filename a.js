@@ -7,3 +7,5 @@ var d = 'Already %s masked text';
 var e = 'Enter JS text "Transaction # ".';
 var f = 'String with \n new line';
 /* </sl:translate> */
+
+var md = /*<sl:translate_md> <first-string/>*/'**String with** \n\n # new line';
