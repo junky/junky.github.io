@@ -57,7 +57,7 @@
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 	  <script>
 	    document.getElementById('content').innerHTML =
-	      marked(window.vimeo.markdown);
+	      marked.parse(window.vimeo.markdown);
 	  </script>
 
 <script id="readme-data-content" type="application/json" data-json="&quot;
