@@ -58,13 +58,12 @@
     <br>
     <button onclick='md5OnClick(document.getElementById("string_area").value);'>MD5 Hashcode</button>
     <button onclick='StrLengthOnClick(document.getElementById("string_area").value);'>String Length</button>
-    <button onclick='getTranslations(document.getElementById("string_area").value);'>PinchJS</button>
+    <button onclick='SetHtmlTemplate();'>Html Template</button>
     <br/><br/>
       
     <div>I have read and agreed to the {{{0}}}</div>  
      
     <br/><br/>
-    <img src="https://vimeoblog.imgix.net/sites/7/2021/01/slideshow-hero.png?auto=format&lossless=1&fit=clamp&w=1000"/>
       
     <div id="html-tmpl" style="display:none;">
       &lt;section class&#x3D;&quot;ucs-module ucs-module-top-bar-full modern-topbar charcoal-topbar full-thin-topbar&quot; data-ucs-module-name&#x3D;&quot;unified_auth_during_migration&quot; data-ucs-render-id&#x3D;&quot;7ctk-y3pPF7xNRhXcawJanlXLejlQoHndi4exFQDZ2Ire9rkAHwg4g&#x3D;&#x3D;&quot; id&#x3D;&quot;ucs-top-bar&quot;&gt;
@@ -90,6 +89,11 @@
       }
       function StrLengthOnClick(str) {
         document.getElementById("op_value").innerHTML = str.length;
+      }
+      function SetHtmlTemplate() {
+        let newDiv = document.createElement("div");
+        document.appendChild(newDiv);
+        newDiv.innerHTML = document.getElementById("html-tmpl").textContent;
       }
     </script>
 
