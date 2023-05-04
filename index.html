@@ -92,7 +92,7 @@
       }
       function SetHtmlTemplate() {
         let newDiv = document.createElement("div");
-        document.appendChild(newDiv);
+        document.body.appendChild(newDiv);
         newDiv.innerHTML = document.getElementById("html-tmpl").textContent;
       }
     </script>
