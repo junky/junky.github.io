@@ -77,7 +77,7 @@
     </div><!-- /.container -->
     <script>
       function md5OnClick(str) {
-        document.getElementById("op_value").innerHTML = calcMD5(str);
+        document.getElementById("op_value").innerHTML = CryptoJS.MD5(str).toString();
       }
       function StrLengthOnClick(str) {
         document.getElementById("op_value").innerHTML = str.length;
