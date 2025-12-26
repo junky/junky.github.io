@@ -78,7 +78,7 @@ function getTranslations() {
 	xhttp.send();
 }
 
-window.onscroll = function() {onScrollFunc()};
+window.onscroll = function() {onScrollFunc();};
 addSLHeader();
 
 function addSLHeader() {

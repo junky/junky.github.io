@@ -22,7 +22,7 @@ new function() {
 		serverUrl.attr('disabled', 'disabled');
 		connectButton.hide();
 		disconnectButton.show();
-	}
+	};
 	
 	var close = function() {
 		if (ws) {
@@ -37,11 +37,11 @@ new function() {
 		disconnectButton.hide();
 		sendMessage.attr('disabled', 'disabled');
 		sendButton.attr('disabled', 'disabled');
-	}
+	};
 	
 	var clearLog = function() {
 		$('#messages').html('');
-	}
+	};
 	
 	var onOpen = function() {
 		console.log('OPENED: ' + serverUrl.val());
@@ -64,7 +64,7 @@ new function() {
 	
 	var onError = function(event) {
 		alert(event.data);
-	}
+	};
 	
 	var addMessage = function(data, type) {
 		var msg = $('<pre>').text(data);
@@ -79,7 +79,7 @@ new function() {
 			msgBox.removeChild(msgBox.firstChild);
 		}
 		msgBox.scrollTop = msgBox.scrollHeight;
-	}
+	};
 
 	WebSocketClient = {
 		init: function() {
@@ -122,7 +122,7 @@ new function() {
 			});
 		}
 	};
-}
+};
 
 $(function() {
 	WebSocketClient.init();
