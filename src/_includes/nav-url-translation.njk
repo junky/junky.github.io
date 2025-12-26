@@ -1,0 +1,16 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">junky.github.io</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav me-auto mb-2 mb-md-0">
+        <li class="nav-item"><a class="nav-link{% if page.url == '/url-translation/' or page.url == '/url-translation/index.html' %} active" aria-current="page{% endif %}" href="/url-translation/index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link{% if page.url == '/url-translation/ceu.html' %} active" aria-current="page{% endif %}" href="/url-translation/ceu.html">CEU segment</a></li>
+        <li class="nav-item"><a class="nav-link{% if page.url == '/url-translation/wnc.html' %} active" aria-current="page{% endif %}" href="/url-translation/wnc.html">WNC segment</a></li>
+        <li class="nav-item"><a class="nav-link{% if page.url == '/url-translation/about-us.html' %} active" aria-current="page{% endif %}" href="/url-translation/about-us.html">About us</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>

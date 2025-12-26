@@ -1,0 +1,40 @@
+---
+title: junky.github.io
+layout: base.njk
+navType: main
+bodyPaddingTop: 75px
+permalink: /gdn-troubleshooting.html
+extraStyles: |
+  .text-div {
+        border: 1px solid black;
+        padding-bottom: 2px;
+        padding-top: 2px;
+  }
+---
+<div class="container">
+
+
+
+<div class="row">
+  <div class="col-md-1"><b>1.</b></div>
+  <div id="dtext" class="col-md-2 text-div">******</div>
+  <div class="col-md-6"><button onclick='SetTextFromJS();' class="notranslate">Set text from JS literal</button></div>
+</div>
+<div class="row">&nbsp;</div>
+<div class="row">&nbsp;</div>
+<div class="row">
+  <div class="col-md-1"><b>2.</b></div>
+  <div class="col-md-2 text-div">Period: </div>
+  <div class="col-md-2 text-div y2022">2022</div>
+  <div class="col-md-2 text-div y2021">2021</div>
+  <div class="col-md-2 text-div y2020">2020</div>
+</div>
+
+</div><!-- /.container -->
+<script>
+  function SetTextFromJS() {
+
+    document.getElementById("dtext").innerText='Translatable Text';
+
+  }
+</script>

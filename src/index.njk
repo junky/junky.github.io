@@ -1,0 +1,55 @@
+---
+title: junky.github.io
+layout: base.njk
+navType: main
+bodyPaddingTop: 75px
+permalink: /index.html
+headScripts: |
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/md5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/enc-utf8.min.js"></script>
+---
+<div class="container">
+
+<label id="lb_value" for="op_value">Value:&nbsp;&nbsp;</label><span id="op_value"></span>
+<br>
+<textarea id="string_area" rows="5" cols="75"></textarea>
+<br>
+<button onclick='md5OnClick(document.getElementById("string_area").value);'>MD5 Hashcode</button>
+<button onclick='StrLengthOnClick(document.getElementById("string_area").value);'>String Length</button>
+<br/><br/>
+
+<label for="cars">Choose <strong class="foo" style="foo" full="true" attr1=1>a car</strong>:</label>
+<select  name="cars" id="cars">
+<optgroup label="Swedish Cars">
+  <option value="volvo">Volvo</option>
+  <option value="saab">Saab</option>
+</optgroup>
+<optgroup label="German Cars">
+  <option value="mercedes">Mercedes</option>
+  <option value="audi">Audi</option>
+</optgroup>
+</select>
+
+  <div title="attribute &amp; translate"></div>
+
+  <p class="MuiTypography-root ">Our range of women's swimsuits offers a range of designs that will make the perfect addition to your <style data-emotion="plp 1qsits3">.plp-1qsits3{}</style> to complete the look.</p>
+
+  <div data-cmp-data-layer="{&#34;text-fdfebec9f1&#34;:{&#34;@type&#34;:&#34;uxp/components/proxy/content/text&#34;,&#34;repo:modifyDate&#34;:&#34;2025-04-30T09:32:09Z&#34;,&#34;xdm:text&#34;:&#34;&lt;ol&gt;\r\n&lt;li&gt;Memo each account accessed in Samson when completing Salesforce requests. (&lt;b&gt;Exception:&lt;/b&gt; If the&nbsp; Salesforce case is dismissed because no response is needed, then no memo is required.)&lt;/li&gt;\r\n&lt;li&gt;Include the following information in your memo. Don't copy and paste the response sent to customers in Samson memos; responses can be accessed by searching&nbsp; Salesforce with case or form number.&nbsp;When documenting an account, use EMPH as the memo code.&lt;ul&gt;\r\n&lt;li&gt;Salesforce case number (ex: Case XXXXX)&lt;/li&gt;\r\n&lt;li&gt;Full name of customer making request. (For requests from Sales: first name, last initial, and dealer code.)&lt;/li&gt;\r\n&lt;li&gt;How issue was resolved, including any account changes made&lt;/li&gt;\r\n&lt;li&gt;How response was provided: email, call, fax, SMS&lt;/li&gt;\r\n&lt;li&gt;All math used to determine adjustments&lt;/li&gt;\r\n&lt;li&gt;Form numbers&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;/li&gt;\r\n&lt;/ol&gt;\r\n&#34;}}" id="text-fdfebec9f1" class="cmp-text
+
+tdds:mt-0
+tdds:mb-0
+tdds:text-inherit
+tdds:ta-inherit
+color-initial" style="--custom-color:"></div>
+
+</div><!-- /.container -->
+<script>
+  function md5OnClick(str) {
+    document.getElementById("op_value").innerHTML = CryptoJS.MD5(str).toString();
+  }
+  function StrLengthOnClick(str) {
+    document.getElementById("op_value").innerHTML = str.length;
+  }
+</script>

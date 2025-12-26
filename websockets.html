@@ -18,19 +18,20 @@
         padding-top: 75px;
       }
       .starter-template {
-        padding: 40px 15px;
-        text-align: center;
-      }
-      .odometer {
-         font-size: 100px;
-         padding-bottom: 50px;
-      }
-    </style>
+  padding: 40px 15px;
+  text-align: center;
+}
+.odometer {
+   font-size: 100px;
+   padding-bottom: 50px;
+}
 
+    </style>
     <!-- Odometr includes -->
-    <link rel="stylesheet" href="https://github.hubspot.com/odometer/themes/odometer-theme-car.css">
-    <script src="https://github.hubspot.com/odometer/odometer.js"></script>
-    
+<link rel="stylesheet" href="https://github.hubspot.com/odometer/themes/odometer-theme-car.css">
+<script src="https://github.hubspot.com/odometer/odometer.js"></script>
+
+
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -40,146 +41,151 @@
 
   <body>
 
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="#">junky.github.io</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav me-auto mb-2 mb-md-0">
-            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="/noingest.html">No Ingest</a></li>
-            <li class="nav-item"><a class="nav-link active" aria-current="page" href="/websockets.html">Websockets</a></li>
-            <li class="nav-item"><a class="nav-link" href="/dates.html">Dates</a></li>
-            <li class="nav-item"><a class="nav-link" href="/mt.html">MT</a></li>
-            <li class="nav-item"><a class="nav-link" href="/markdown.html">Markdown</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">junky.github.io</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav me-auto mb-2 mb-md-0">
+        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/noingest.html">No Ingest</a></li>
+        <li class="nav-item"><a class="nav-link" href="/xhr-demo.html">XHR</a></li>
+        <li class="nav-item"><a class="nav-link" href="/dates.html">Dates</a></li>
+        <li class="nav-item"><a class="nav-link" href="/mt.html">MT</a></li>
+        <li class="nav-item"><a class="nav-link" href="/markdown.html">Markdown</a></li>
+        <li class="nav-item"><a class="nav-link" href="/gdn-troubleshooting.html">GDN Troubleshooting</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    
 
     <div class="container">
-        <div id="ws-swap" class="starter-template sl_swap">
-          <p>15 days before departure for BA mainline and JB Routes</p>
-          <p>days before departure for BA mainline and JB Routes</p>
-          <p>15 days after departure for BA mainline and JB Routes</p>
-        </div>
+    <div id="ws-swap" class="starter-template sl_swap">
+      <p>15 days before departure for BA mainline and JB Routes</p>
+      <p>days before departure for BA mainline and JB Routes</p>
+      <p>15 days after departure for BA mainline and JB Routes</p>
+    </div>
 
-      <div class="starter-template">
-        <div style="padding: 20px 30px;">
-          <b>Server URL:</b>
-          <input type="text" name="server" id="server" style="width: 250px;" value="ws://echo.websocket.org" />
-          <input type="button" value="Open" id="conn_button" onclick="onConnButtonClick();" />
-        </div>
-        
-        <div id="odometer" class="odometer">123</div>
-        <div style="padding-top:50px;">
-          <textarea id="log" style="width: 600px; height: 250px;"></textarea>
-        </div>
-        
-      </div>
+  <div class="starter-template">
+    <div style="padding: 20px 30px;">
+      <b>Server URL:</b>
+      <input type="text" name="server" id="server" style="width: 250px;" value="ws://echo.websocket.org" />
+      <input type="button" value="Open" id="conn_button" onclick="onConnButtonClick();" />
+    </div>
 
-    </div><!-- /.container -->
+    <div id="odometer" class="odometer">123</div>
+    <div style="padding-top:50px;">
+      <textarea id="log" style="width: 600px; height: 250px;"></textarea>
+    </div>
+
+  </div>
+
+</div><!-- /.container -->
+<script type='text/javascript'>
+timer = 0;
+websocket = null;
+isConnected = false;
+
+if(localStorage.getItem("ws_url1") !== null) {
+    $('#server').val(localStorage.ws_url1);
+}
+
+function dateToString(date) {
+	var min = date.getMinutes();
+	if(min<10) {
+	    min = "0" + min;
+	}
+	var sec = date.getSeconds();
+	if(sec<10) {
+	    sec = "0" + sec;
+	}
+    var dateOfString = date.getHours() + ":" + min + ":" + sec;
+    return dateOfString;
+}
+
+function log(msg) {
+    $('#log').text(dateToString(new Date()) + " " + msg + "\n" + $('#log').text());
+}
+
+function openWebSocket(wsUri) {
+	log('Connecting to ' + wsUri + ' ... ');
+    websocket = new WebSocket(wsUri);
+    websocket.onopen = function(evt) { onOpen(evt) };
+    websocket.onclose = function(evt) { onClose(evt) };
+    websocket.onmessage = function(evt) { onMessage(evt) };
+    websocket.onerror = function(evt) { onError(evt) };
+}
+
+function onOpen(evt) {
+	log("CONNECTED");
+	doSend('Websocket works.');
+    timer = setTimeout(sendNumberedMessage, 5000);
+    isConnected = true;
+    $('#conn_button').val('Close');
+}
+
+function onClose(evt) {
+	log("DISCONNECTED");
+	clearTimeout(timer);
+	timer = 0;
+	isConnected = false;
+    $('#conn_button').val('Open');
+}
+
+function onMessage(evt) {
+	log('RESPONSE: ' + evt.data);
+	s = evt.data;
+	if(s.indexOf("nm:")==0) {
+	  odometer.innerHTML = s.substring(3);
+	}
+}
+
+function onError(evt) {
+	log('ERROR: ' + evt.data);
+    clearTimeout(timer);
+    timer = 0;
+}
+
+function doSend(message) {
+	log("SENT: " + message);
+	websocket.send(message);
+}
+
+function getRandomInt (min, max) {
+	var num = Math.floor(Math.random() * (max - min + 1)) + min;
+    return num;
+}
+
+function sendNumberedMessage() {
+	var r = getRandomInt(100, 999);
+	doSend('nm:' + r);
+	timer = setTimeout(sendNumberedMessage, 5000);
+}
+
+function onConnButtonClick(){
+	if(!isConnected) {
+	    openWebSocket($('#server').val());
+        localStorage.ws_url1 = $('#server').val();
+	} else {
+        clearTimeout(timer);
+        timer = 0;
+        websocket.close();
+	}
+}
+
+</script>
 
 
     <!-- Bootstrap core JavaScript -->
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
-    <script type='text/javascript'>
-    timer = 0;
-    websocket = null;
-    isConnected = false;
     
-    if(localStorage.getItem("ws_url1") !== null) {
-        $('#server').val(localStorage.ws_url1);
-    }
-        
-    function dateToString(date) {
-    	var min = date.getMinutes();
-    	if(min<10) {
-    	    min = "0" + min;    
-    	}
-    	var sec = date.getSeconds();
-    	if(sec<10) {
-    	    sec = "0" + sec;    
-    	}
-        var dateOfString = date.getHours() + ":" + min + ":" + sec;
-        return dateOfString;
-    }
-    
-    function log(msg) {
-        $('#log').text(dateToString(new Date()) + " " + msg + "\n" + $('#log').text());
-    }
-
-    function openWebSocket(wsUri) { 
-    	log('Connecting to ' + wsUri + ' ... ');
-        websocket = new WebSocket(wsUri); 
-        websocket.onopen = function(evt) { onOpen(evt) }; 
-        websocket.onclose = function(evt) { onClose(evt) }; 
-        websocket.onmessage = function(evt) { onMessage(evt) }; 
-        websocket.onerror = function(evt) { onError(evt) }; 
-    }  
-    
-    function onOpen(evt) { 
-    	log("CONNECTED"); 
-    	doSend('Websocket works.');
-        timer = setTimeout(sendNumberedMessage, 5000);
-        isConnected = true;
-        $('#conn_button').val('Close');
-    }  
-    
-    function onClose(evt) { 
-    	log("DISCONNECTED");
-    	clearTimeout(timer);
-    	timer = 0;
-    	isConnected = false;
-        $('#conn_button').val('Open');
-    }  
-    
-    function onMessage(evt) { 
-    	log('RESPONSE: ' + evt.data);
-    	s = evt.data;
-    	if(s.indexOf("nm:")==0) {
-    	  odometer.innerHTML = s.substring(3);
-    	}
-    }  
-    
-    function onError(evt) { 
-    	log('ERROR: ' + evt.data); 
-        clearTimeout(timer);
-        timer = 0;
-    }  
-    
-    function doSend(message) { 
-    	log("SENT: " + message);  
-    	websocket.send(message); 
-    }
-
-    function getRandomInt (min, max) {
-    	var num = Math.floor(Math.random() * (max - min + 1)) + min;
-        return num;
-    }
-    
-    function sendNumberedMessage() {
-    	var r = getRandomInt(100, 999);
-    	doSend('nm:' + r);
-    	timer = setTimeout(sendNumberedMessage, 5000);
-    }
-    
-    function onConnButtonClick(){
-    	if(!isConnected) {
-    	    openWebSocket($('#server').val());
-            localStorage.ws_url1 = $('#server').val();
-    	} else {
-            clearTimeout(timer);
-            timer = 0;
-            websocket.close();
-    	}
-    }
-    
-    </script>
-
   </body>
 </html>

@@ -1,0 +1,136 @@
+---
+title: junky.github.io
+layout: base.njk
+navType: main
+bodyPaddingTop: 75px
+includeJquery: true
+permalink: /websockets.html
+extraStyles: |
+  .starter-template {
+    padding: 40px 15px;
+    text-align: center;
+  }
+  .odometer {
+     font-size: 100px;
+     padding-bottom: 50px;
+  }
+headScripts: |
+  <!-- Odometr includes -->
+  <link rel="stylesheet" href="https://github.hubspot.com/odometer/themes/odometer-theme-car.css">
+  <script src="https://github.hubspot.com/odometer/odometer.js"></script>
+---
+<div class="container">
+    <div id="ws-swap" class="starter-template sl_swap">
+      <p>15 days before departure for BA mainline and JB Routes</p>
+      <p>days before departure for BA mainline and JB Routes</p>
+      <p>15 days after departure for BA mainline and JB Routes</p>
+    </div>
+
+  <div class="starter-template">
+    <div style="padding: 20px 30px;">
+      <b>Server URL:</b>
+      <input type="text" name="server" id="server" style="width: 250px;" value="ws://echo.websocket.org" />
+      <input type="button" value="Open" id="conn_button" onclick="onConnButtonClick();" />
+    </div>
+
+    <div id="odometer" class="odometer">123</div>
+    <div style="padding-top:50px;">
+      <textarea id="log" style="width: 600px; height: 250px;"></textarea>
+    </div>
+
+  </div>
+
+</div><!-- /.container -->
+<script type='text/javascript'>
+timer = 0;
+websocket = null;
+isConnected = false;
+
+if(localStorage.getItem("ws_url1") !== null) {
+    $('#server').val(localStorage.ws_url1);
+}
+
+function dateToString(date) {
+	var min = date.getMinutes();
+	if(min<10) {
+	    min = "0" + min;
+	}
+	var sec = date.getSeconds();
+	if(sec<10) {
+	    sec = "0" + sec;
+	}
+    var dateOfString = date.getHours() + ":" + min + ":" + sec;
+    return dateOfString;
+}
+
+function log(msg) {
+    $('#log').text(dateToString(new Date()) + " " + msg + "\n" + $('#log').text());
+}
+
+function openWebSocket(wsUri) {
+	log('Connecting to ' + wsUri + ' ... ');
+    websocket = new WebSocket(wsUri);
+    websocket.onopen = function(evt) { onOpen(evt) };
+    websocket.onclose = function(evt) { onClose(evt) };
+    websocket.onmessage = function(evt) { onMessage(evt) };
+    websocket.onerror = function(evt) { onError(evt) };
+}
+
+function onOpen(evt) {
+	log("CONNECTED");
+	doSend('Websocket works.');
+    timer = setTimeout(sendNumberedMessage, 5000);
+    isConnected = true;
+    $('#conn_button').val('Close');
+}
+
+function onClose(evt) {
+	log("DISCONNECTED");
+	clearTimeout(timer);
+	timer = 0;
+	isConnected = false;
+    $('#conn_button').val('Open');
+}
+
+function onMessage(evt) {
+	log('RESPONSE: ' + evt.data);
+	s = evt.data;
+	if(s.indexOf("nm:")==0) {
+	  odometer.innerHTML = s.substring(3);
+	}
+}
+
+function onError(evt) {
+	log('ERROR: ' + evt.data);
+    clearTimeout(timer);
+    timer = 0;
+}
+
+function doSend(message) {
+	log("SENT: " + message);
+	websocket.send(message);
+}
+
+function getRandomInt (min, max) {
+	var num = Math.floor(Math.random() * (max - min + 1)) + min;
+    return num;
+}
+
+function sendNumberedMessage() {
+	var r = getRandomInt(100, 999);
+	doSend('nm:' + r);
+	timer = setTimeout(sendNumberedMessage, 5000);
+}
+
+function onConnButtonClick(){
+	if(!isConnected) {
+	    openWebSocket($('#server').val());
+        localStorage.ws_url1 = $('#server').val();
+	} else {
+        clearTimeout(timer);
+        timer = 0;
+        websocket.close();
+	}
+}
+
+</script>

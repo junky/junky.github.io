@@ -1,0 +1,32 @@
+---
+title: junky.github.io - URLs Translation - WNC segment
+layout: base.njk
+navType: url-translation
+bodyPaddingTop: 75px
+includeJquery: true
+permalink: /url-translation/wnc.html
+extraStyles: |
+  .starter-template {
+    padding: 40px 15px;
+    text-align: center;
+  }
+  .odometer {
+     font-size: 100px;
+     padding-bottom: 50px;
+  }
+  .jumbotron {
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+    background-color: var(--bs-tertiary-bg);
+    border-radius: .5rem;
+  }
+footerScripts: |
+  <script>$("#url_value").html(decodeURIComponent(window.location.pathname));</script>
+---
+<div class="container">
+
+  <div class="jumbotron">
+    <h1><span style="color:grey">URL: </span><span id="url_value"></span></h1>
+  </div>
+
+</div><!-- /.container -->

@@ -18,65 +18,78 @@
         padding-top: 75px;
       }
       .text-div {
-            border: 1px solid black;
-            padding-bottom: 2px;
-            padding-top: 2px;
-      }
-    </style>
+      border: 1px solid black;
+      padding-bottom: 2px;
+      padding-top: 2px;
+}
 
+    </style>
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
   </head>
 
   <body>
 
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="#">junky.github.io</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav me-auto mb-2 mb-md-0">
-            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="/noingest.html">No Ingest</a></li>
-            <li class="nav-item"><a class="nav-link" href="/websockets.html">Websockets</a></li>
-            <li class="nav-item"><a class="nav-link" href="/dates.html">Dates</a></li>
-            <li class="nav-item"><a class="nav-link" href="/mt.html">MT</a></li>
-            <li class="nav-item"><a class="nav-link" href="/markdown.html">Markdown</a></li>
-            <li class="nav-item"><a class="nav-link active notranslate" aria-current="page" href="/gdn-troubleshooting.html">GDN Troubleshooting</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">junky.github.io</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav me-auto mb-2 mb-md-0">
+        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/noingest.html">No Ingest</a></li>
+        <li class="nav-item"><a class="nav-link" href="/xhr-demo.html">XHR</a></li>
+        <li class="nav-item"><a class="nav-link" href="/dates.html">Dates</a></li>
+        <li class="nav-item"><a class="nav-link" href="/mt.html">MT</a></li>
+        <li class="nav-item"><a class="nav-link" href="/markdown.html">Markdown</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/gdn-troubleshooting.html">GDN Troubleshooting</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    
 
     <div class="container">
-    
-    
-      
-    <div class="row">
-      <div class="col-md-1"><b>1.</b></div>
-      <div id="dtext" class="col-md-2 text-div">******</div>
-      <div class="col-md-6"><button onclick='SetTextFromJS();' class="notranslate">Set text from JS literal</button></div>
-    </div>
-    <div class="row">&nbsp;</div>
-    <div class="row">&nbsp;</div>
-    <div class="row">
-      <div class="col-md-1"><b>2.</b></div>
-      <div class="col-md-2 text-div">Period: </div>
-      <div class="col-md-2 text-div y2022">2022</div>
-      <div class="col-md-2 text-div y2021">2021</div>
-      <div class="col-md-2 text-div y2020">2020</div>
-    </div>
 
-    </div><!-- /.container -->
-    <script>
-      function SetTextFromJS() {
-        
-        document.getElementById("dtext").innerText='Translatable Text';
-        
-      }
-    </script>
+
+
+<div class="row">
+  <div class="col-md-1"><b>1.</b></div>
+  <div id="dtext" class="col-md-2 text-div">******</div>
+  <div class="col-md-6"><button onclick='SetTextFromJS();' class="notranslate">Set text from JS literal</button></div>
+</div>
+<div class="row">&nbsp;</div>
+<div class="row">&nbsp;</div>
+<div class="row">
+  <div class="col-md-1"><b>2.</b></div>
+  <div class="col-md-2 text-div">Period: </div>
+  <div class="col-md-2 text-div y2022">2022</div>
+  <div class="col-md-2 text-div y2021">2021</div>
+  <div class="col-md-2 text-div y2020">2020</div>
+</div>
+
+</div><!-- /.container -->
+<script>
+  function SetTextFromJS() {
+
+    document.getElementById("dtext").innerText='Translatable Text';
+
+  }
+</script>
+
 
     <!-- Bootstrap core JavaScript -->
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
   </body>
 </html>

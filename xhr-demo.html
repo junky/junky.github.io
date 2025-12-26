@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="junky">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' fonts.googleapis.com cdn.jsdelivr.net github.hubspot.com ajax.googleapis.com pinchjs-cdn.pinch.dev.smartling.net xhr-demo.pinch.dev.smartling.net; font-src * data: blob: 'unsafe-inline'; child-src 'none';">
 
     <title>junky.github.io</title>
 
@@ -19,19 +18,21 @@
         padding-top: 75px;
       }
       .starter-template {
-        padding: 40px 15px;
-        text-align: center;
-      }
-      .odometer {
-         font-size: 100px;
-         padding-bottom: 50px;
-      }
-    </style>
+  padding: 40px 15px;
+  text-align: center;
+}
+.odometer {
+   font-size: 100px;
+   padding-bottom: 50px;
+}
 
-    <!-- Odometr includes -->
-    <link rel="stylesheet" href="https://github.hubspot.com/odometer/themes/odometer-theme-car.css">
-    <script src="https://github.hubspot.com/odometer/odometer.js"></script>
-    
+    </style>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' fonts.googleapis.com cdn.jsdelivr.net github.hubspot.com ajax.googleapis.com pinchjs-cdn.pinch.dev.smartling.net xhr-demo.pinch.dev.smartling.net; font-src * data: blob: 'unsafe-inline'; child-src 'none';">
+<!-- Odometr includes -->
+<link rel="stylesheet" href="https://github.hubspot.com/odometer/themes/odometer-theme-car.css">
+<script src="https://github.hubspot.com/odometer/odometer.js"></script>
+
+
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -41,47 +42,50 @@
 
   <body>
 
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="#">junky.github.io</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav me-auto mb-2 mb-md-0">
-            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="/noingest.html">No Ingest</a></li>
-            <li class="nav-item"><a class="nav-link active" aria-current="page" href="/xhr-demo.html">XHR</a></li>
-            <li class="nav-item"><a class="nav-link" href="/dates.html">Dates</a></li>
-            <li class="nav-item"><a class="nav-link" href="/mt.html">MT</a></li>
-            <li class="nav-item"><a class="nav-link" href="/markdown.html">Markdown</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">junky.github.io</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav me-auto mb-2 mb-md-0">
+        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/noingest.html">No Ingest</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/xhr-demo.html">XHR</a></li>
+        <li class="nav-item"><a class="nav-link" href="/dates.html">Dates</a></li>
+        <li class="nav-item"><a class="nav-link" href="/mt.html">MT</a></li>
+        <li class="nav-item"><a class="nav-link" href="/markdown.html">Markdown</a></li>
+        <li class="nav-item"><a class="nav-link" href="/gdn-troubleshooting.html">GDN Troubleshooting</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    
 
     <div class="container">
 
-      <div class="starter-template">
-        <div style="padding: 20px 30px;">
-          <b>Enter number:</b>
-          <input type="text" name="number" id="number" style="width: 250px;" value="010" />
-          <input type="button" value="Send" id="send_btn" />
-        </div>
-        
-        <div id="odometer" class="odometer">123</div>
-        
-      </div>
+  <div class="starter-template">
+    <div style="padding: 20px 30px;">
+      <b>Enter number:</b>
+      <input type="text" name="number" id="number" style="width: 250px;" value="010" />
+      <input type="button" value="Send" id="send_btn" />
+    </div>
 
-    </div><!-- /.container -->
+    <div id="odometer" class="odometer">123</div>
+
+  </div>
+
+</div><!-- /.container -->
 
 
     <!-- Bootstrap core JavaScript -->
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
     <script> var slXhrUrl = "https://xhr-demo.pinch.dev.smartling.net"; </script>
-    <script src="https://pinchjs-cdn.pinch.dev.smartling.net/demo.js"></script>
-
+<script src="https://pinchjs-cdn.pinch.dev.smartling.net/demo.js"></script>
 
   </body>
 </html>
