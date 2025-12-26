@@ -1,0 +1,25 @@
+{
+  "name": "junky.github.io",
+  "version": "1.0.0",
+  "description": "junky.github.io ===============",
+  "main": "a.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/junky/junky.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/junky/junky.github.io/issues"
+  },
+  "homepage": "https://github.com/junky/junky.github.io#readme",
+  "devDependencies": {
+    "eslint": "^9.39.2",
+    "html-validate": "^10.5.0"
+  }
+}
