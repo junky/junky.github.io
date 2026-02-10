@@ -1,0 +1,26 @@
+{
+    "sl_translate": "title",
+    "data": {
+        "productSummary": {
+            "brand": "self.",
+            "range": null,
+            "productName": "",
+            "department": "Womenswear",
+            "fit": "Regular",
+            "productCategory": "Bras",
+            "itemNumber": "100852",
+            "title": "Cotton Scoop Neck Crop Bra",
+            "type": "Product",
+            "colourways": [{
+                "fits": ["Regular"],
+                "title": "Cotton Scoop Neck Crop Bra",
+                "overallStarRating": 0,
+                "personalisedType": "fashion",
+                "itemNumber": "100852",
+                "url": "style/SU043044/100852#100852",
+                "colour": "Light Grey",
+                "price": null
+            }]
+        }
+    }
+}
