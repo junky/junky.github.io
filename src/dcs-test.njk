@@ -1,0 +1,46 @@
+---
+title: junky.github.io - DCS Test
+layout: base.njk
+navType: main
+bodyPaddingTop: 75px
+permalink: /dcs-test.html
+headScripts: |
+  <script>window.slIncludeAttr = window.slIncludeAttr || [];
+  window.slIncludeAttr = window.slIncludeAttr.concat([{"attr_name":"aria-label", "cond":"css:.trans2"}]);
+  window.slIncludeAttr = window.slIncludeAttr.concat([{"attr_name":"aria-text", "cond":"uri:/dcs-test.html"}]);
+  window.slExcludeAttr = window.slExcludeAttr || [];
+  window.slExcludeAttr = window.slExcludeAttr.concat([{"attr_name":"aria-label","cond":"css:.aria-tran-foo"}]);
+  window.slExcludeAttr = window.slExcludeAttr.concat([{"attr_name":"aria-text","cond":"css:.exclude"}]);</script>
+footerScripts: |
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelector('.aria-tran').setAttribute('aria-label', 'translatable attribute');
+      document.getElementById('tUrl').setAttribute('aria-text', 'Url test label');
+      document.querySelector('.aria-tran').classList.add('trans2');
+
+      var btn = document.createElement('button');
+      btn.textContent = 'Click me';
+      btn.setAttribute('aria-label', 'Need to translate');
+      document.querySelector('.aria-tran').parentNode.appendChild(btn);
+      setTimeout(function() {
+        btn.classList.add('trans2');
+      }, 300);
+
+      var excl = document.createElement('div');
+      excl.id = 'tExcl';
+      excl.textContent = 'Exclude rule test';
+      excl.setAttribute('aria-text', 'excluded from translation');
+      document.querySelector('.aria-tran').parentNode.appendChild(excl);
+      setTimeout(function() {
+        excl.classList.add('exclude');
+      }, 200);
+
+      document.getElementById('innContainer').innerHTML = '<div id="tInn" aria-text="Translate this string">InnerHTML test</div>';
+    });
+  </script>
+---
+<div class="container">
+  <div class="aria-tran">Testing DCS library</div>
+  <div id="tUrl">Url condition test</div>
+  <div id="innContainer"></div>
+</div>
