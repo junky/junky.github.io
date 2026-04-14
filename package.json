@@ -22,8 +22,8 @@
   },
   "homepage": "https://github.com/junky/junky.github.io#readme",
   "devDependencies": {
-    "@11ty/eleventy": "^3.1.2",
-    "eslint": "^9.39.2",
-    "html-validate": "^10.5.0"
+    "@11ty/eleventy": "^3.1.5",
+    "eslint": "^10.2.0",
+    "html-validate": "^10.12.1"
   }
 }
