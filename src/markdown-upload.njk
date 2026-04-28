@@ -1,0 +1,116 @@
+---
+title: junky.github.io - Markdown Upload
+layout: base.njk
+navType: main
+bodyPaddingTop: 75px
+permalink: /markdown-upload.html
+extraStyles: |
+  #md-content { border: 1px solid #dee2e6; border-radius: .375rem; padding: 1rem; min-height: 300px; background: #fff; }
+  #md-content:empty::before { content: "Rendered markdown will appear here..."; color: #6c757d; font-style: italic; }
+  .drop-zone { border: 2px dashed #adb5bd; border-radius: .375rem; padding: 2rem; text-align: center; cursor: pointer; transition: background-color .15s, border-color .15s; }
+  .drop-zone.dragover { background: #e7f1ff; border-color: #0d6efd; }
+---
+<div class="container">
+  <h1>Markdown Upload</h1>
+  <p class="text-muted">Select or drop a <code>.md</code> file to render its contents.</p>
+
+  <div class="row g-3 mb-3">
+    <div class="col-md-6">
+      <label for="md-file" class="form-label">Choose markdown file</label>
+      <input type="file" id="md-file" class="form-control" accept=".md,.markdown,text/markdown,text/plain">
+    </div>
+    <div class="col-md-6 d-flex align-items-end">
+      <button id="md-clear" class="btn btn-outline-secondary" type="button">Clear</button>
+      <span id="md-filename" class="ms-3 text-muted align-self-center"></span>
+    </div>
+  </div>
+
+  <div id="md-drop" class="drop-zone mb-3">
+    Drop a markdown file here
+  </div>
+
+  <div id="md-error" class="alert alert-danger d-none" role="alert"></div>
+
+  <div id="md-content"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
+<script>
+  (function () {
+    const fileInput = document.getElementById('md-file');
+    const clearBtn = document.getElementById('md-clear');
+    const dropZone = document.getElementById('md-drop');
+    const content = document.getElementById('md-content');
+    const filenameLabel = document.getElementById('md-filename');
+    const errorBox = document.getElementById('md-error');
+
+    function showError(msg) {
+      errorBox.textContent = msg;
+      errorBox.classList.remove('d-none');
+    }
+
+    function clearError() {
+      errorBox.textContent = '';
+      errorBox.classList.add('d-none');
+    }
+
+    function render(text) {
+      const html = marked.parse(text);
+      content.innerHTML = DOMPurify.sanitize(html);
+    }
+
+    function readFile(file) {
+      clearError();
+      if (!file) return;
+      filenameLabel.textContent = file.name;
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        render(e.target.result);
+      };
+      reader.onerror = function () {
+        showError('Failed to read file.');
+      };
+      reader.readAsText(file);
+    }
+
+    fileInput.addEventListener('change', function () {
+      readFile(fileInput.files[0]);
+    });
+
+    clearBtn.addEventListener('click', function () {
+      fileInput.value = '';
+      filenameLabel.textContent = '';
+      content.innerHTML = '';
+      clearError();
+    });
+
+    ['dragenter', 'dragover'].forEach(function (evt) {
+      dropZone.addEventListener(evt, function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        dropZone.classList.add('dragover');
+      });
+    });
+
+    ['dragleave', 'drop'].forEach(function (evt) {
+      dropZone.addEventListener(evt, function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        dropZone.classList.remove('dragover');
+      });
+    });
+
+    dropZone.addEventListener('drop', function (e) {
+      const file = e.dataTransfer.files && e.dataTransfer.files[0];
+      if (file) {
+        fileInput.value = '';
+        readFile(file);
+      }
+    });
+
+    dropZone.addEventListener('click', function () {
+      fileInput.click();
+    });
+  })();
+</script>

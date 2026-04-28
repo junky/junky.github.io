@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="junky">
+
+    <title>junky.github.io - Markdown Upload</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <style>
+      body {
+        padding-top: 75px;
+      }
+      #md-content { border: 1px solid #dee2e6; border-radius: .375rem; padding: 1rem; min-height: 300px; background: #fff; }
+#md-content:empty::before { content: "Rendered markdown will appear here..."; color: #6c757d; font-style: italic; }
+.drop-zone { border: 2px dashed #adb5bd; border-radius: .375rem; padding: 2rem; text-align: center; cursor: pointer; transition: background-color .15s, border-color .15s; }
+.drop-zone.dragover { background: #e7f1ff; border-color: #0d6efd; }
+
+    </style>
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">junky.github.io</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav me-auto mb-2 mb-md-0">
+        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/noingest.html">No Ingest</a></li>
+        <li class="nav-item"><a class="nav-link" href="/xhr-demo.html">XHR</a></li>
+        <li class="nav-item"><a class="nav-link" href="/dates.html">Dates</a></li>
+        <li class="nav-item"><a class="nav-link" href="/mt.html">MT</a></li>
+        <li class="nav-item"><a class="nav-link" href="/markdown.html">Markdown</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/markdown-upload.html">MD Upload</a></li>
+        <li class="nav-item"><a class="nav-link" href="/dcs-test.html">DCS Test</a></li>
+        <li class="nav-item"><a class="nav-link" href="/swaps.html">Swaps</a></li>
+        <li class="nav-item"><a class="nav-link" href="/vue-attributes.html">Vue Attributes</a></li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    
+
+    <div class="container">
+  <h1>Markdown Upload</h1>
+  <p class="text-muted">Select or drop a <code>.md</code> file to render its contents.</p>
+
+  <div class="row g-3 mb-3">
+    <div class="col-md-6">
+      <label for="md-file" class="form-label">Choose markdown file</label>
+      <input type="file" id="md-file" class="form-control" accept=".md,.markdown,text/markdown,text/plain">
+    </div>
+    <div class="col-md-6 d-flex align-items-end">
+      <button id="md-clear" class="btn btn-outline-secondary" type="button">Clear</button>
+      <span id="md-filename" class="ms-3 text-muted align-self-center"></span>
+    </div>
+  </div>
+
+  <div id="md-drop" class="drop-zone mb-3">
+    Drop a markdown file here
+  </div>
+
+  <div id="md-error" class="alert alert-danger d-none" role="alert"></div>
+
+  <div id="md-content"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
+<script>
+  (function () {
+    const fileInput = document.getElementById('md-file');
+    const clearBtn = document.getElementById('md-clear');
+    const dropZone = document.getElementById('md-drop');
+    const content = document.getElementById('md-content');
+    const filenameLabel = document.getElementById('md-filename');
+    const errorBox = document.getElementById('md-error');
+
+    function showError(msg) {
+      errorBox.textContent = msg;
+      errorBox.classList.remove('d-none');
+    }
+
+    function clearError() {
+      errorBox.textContent = '';
+      errorBox.classList.add('d-none');
+    }
+
+    function render(text) {
+      const html = marked.parse(text);
+      content.innerHTML = DOMPurify.sanitize(html);
+    }
+
+    function readFile(file) {
+      clearError();
+      if (!file) return;
+      filenameLabel.textContent = file.name;
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        render(e.target.result);
+      };
+      reader.onerror = function () {
+        showError('Failed to read file.');
+      };
+      reader.readAsText(file);
+    }
+
+    fileInput.addEventListener('change', function () {
+      readFile(fileInput.files[0]);
+    });
+
+    clearBtn.addEventListener('click', function () {
+      fileInput.value = '';
+      filenameLabel.textContent = '';
+      content.innerHTML = '';
+      clearError();
+    });
+
+    ['dragenter', 'dragover'].forEach(function (evt) {
+      dropZone.addEventListener(evt, function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        dropZone.classList.add('dragover');
+      });
+    });
+
+    ['dragleave', 'drop'].forEach(function (evt) {
+      dropZone.addEventListener(evt, function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        dropZone.classList.remove('dragover');
+      });
+    });
+
+    dropZone.addEventListener('drop', function (e) {
+      const file = e.dataTransfer.files && e.dataTransfer.files[0];
+      if (file) {
+        fileInput.value = '';
+        readFile(file);
+      }
+    });
+
+    dropZone.addEventListener('click', function () {
+      fileInput.click();
+    });
+  })();
+</script>
+
+
+    <!-- Bootstrap core JavaScript -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+  </body>
+</html>
