@@ -24,5 +24,28 @@ export default [
       "semi": ["warn", "always"],
       "no-extra-semi": "warn"
     }
+  },
+  {
+    files: ["js-parser-tests/**/*.js"],
+    languageOptions: {
+      globals: {
+        slJsTest: "readonly",
+        fetch: "readonly",
+        Promise: "readonly"
+      }
+    }
+  },
+  {
+    files: ["scripts/**/*.js"],
+    languageOptions: {
+      sourceType: "commonjs",
+      globals: {
+        require: "readonly",
+        module: "writable",
+        process: "readonly",
+        __dirname: "readonly",
+        console: "readonly"
+      }
+    }
   }
 ];
