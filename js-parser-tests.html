@@ -76,6 +76,10 @@
     from request to request, so run them several times.
   </p>
   <p>
+    FAIL means the parser changed what it must not change or broke the file. WARN means a string that may be translated
+    came back as it is: usually it is a new string with no translation in the project yet.
+  </p>
+  <p>
     <button type="button" class="btn btn-primary btn-sm" id="js-tests-run">Run all tests</button>
     <button type="button" class="btn btn-outline-primary btn-sm" id="js-tests-repeat">Run chunk tests 10 times</button>
     <span id="js-tests-mode" class="ms-2 text-muted"></span>

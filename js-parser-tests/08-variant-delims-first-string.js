@@ -7,8 +7,8 @@ slJsTest("08-variant-delims-first-string", function (t) {
     /* </sl:translate> */
 
     /* <sl:translate><first-string> */
-    var firstString = "DCS Test";
-    var secondString = "DCS Test";
+    var firstString = "Swaps";
+    var secondString = "Swaps";
 
     /* <sl:translate><variant>js-parser-test</variant> */
     var variant = "MD Upload";

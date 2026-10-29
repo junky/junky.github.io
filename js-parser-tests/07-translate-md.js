@@ -14,5 +14,5 @@ slJsTest("07-translate-md", function (t) {
     t.md("bold and italic", emphasis);
     t.md("list", list);
     t.md("link", link);
-    t.same("unmarked Markdown string", unmarked);
+    t.same("unmarked MD string", unmarked);
 });

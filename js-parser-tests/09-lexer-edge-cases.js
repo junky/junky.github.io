@@ -13,17 +13,17 @@ slJsTest("09-lexer-edge-cases", function (t) {
     var multiline = `line 1
 line "2" with ${ { a: "}" }.a } brace`;
     var slashes = "http://example.com/a//b /* not a comment */";
-    var escapes = "tab\tquote\"backslash\\ A\x42 \u{1F600}";
+    var escapes = "tab\tquote\"backslash\\ \u0041\x42 \u{1F600}";
     var unicode = "Привіт, світ — ünïcödé";
     var html = "</script><!-- not a comment -->";
 
     /* <sl:translate> */
-    var marked = "Home";
+    var marked = "Swaps";
     var markedAfterRegex = ["Dates", /"/.source][0];
     var markedTemplate = `Swaps`;
     /* </sl:translate> */
 
-    var unmarked = "Home";
+    var unmarked = "Swaps";
 
     t.same("regex with double quotes", quoteRegex.source);
     t.same("regex with an apostrophe", apostropheRegex.source);

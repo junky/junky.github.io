@@ -16,7 +16,7 @@
         { file: "04-translate-html.js", title: "translate_html: strings with HTML markup" },
         { file: "05-translate-json.js", title: "translate_json: small blocks in one chunk, empty block" },
         { file: "06-translate-generic-json.js", title: "translate_generic_json" },
-        { file: "07-translate-md.js", title: "translate_md: Markdown strings" },
+        { file: "07-translate-md.js", title: "translate_md: MD formatted strings" },
         { file: "08-variant-delims-first-string.js", title: "variant, delims and first-string marker options" },
         { file: "09-lexer-edge-cases.js", title: "lexer edge cases: regex, template literals, comments" },
         { file: "10-json-split-block-comments.js", title: "RPS-11071: json blocks closed by /* */ split across chunks", chunked: true },
